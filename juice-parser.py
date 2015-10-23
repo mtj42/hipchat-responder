@@ -14,7 +14,7 @@ __email__ = "mark.judice@praetorian.com"
 base = ''
 token = ''
 room_id = 4
-response_pool = ["Noted", "(savage)", "I'll take that as an action item", "Okay, let's sync on that", "Please sync with Richard", "Thanks, I'll take that under advisement", "Roger that", "Okay", "Excellent, thank you", "The cream will rise to the top", "That's great", "Good for you!", "Neato!", "Me too man, me too", "No.. no man. Shit no man, I believe you'd get your ass kicked saying something like that man", "k"]
+response_pool = None
 
 # Get token
 with open('token.key', 'r') as infile:
@@ -23,6 +23,10 @@ with open('token.key', 'r') as infile:
 # Get base URL
 with open('hostname.key', 'r') as infile:
     base = infile.read().splitlines()[0]
+
+# Get responses
+with open('responses.key', 'r') as infile:
+    response_pool = infile.read().splitlines()
 
 def send_response():
     response = random.choice(response_pool)
